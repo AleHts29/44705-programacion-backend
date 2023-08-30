@@ -15,7 +15,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// GZIP
+// app.use(compression())
 
+// Brotli
+app.use(compression({
+    brotli: { enabled: true, zlib: {} }
+}))
 
 //Declare routers:
 app.use("/compression", compressionRouter);
