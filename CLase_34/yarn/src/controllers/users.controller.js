@@ -1,7 +1,3 @@
-import CustomError from "../services/errors/CustomError.js";
-import EErrors from "../services/errors/errors-enum.js";
-import { generateUserErrorInfo } from "../services/errors/messages/user-creation-error.message.js";
-
 const users = [];
 
 export const getUsers = (req, res) => {
@@ -20,13 +16,7 @@ export const saveUser = (req, res) => {
         console.log(req.body);
         const { first_name, last_name, age, email } = req.body;
         if (!first_name || !email) {
-            // creamos custom Error
-            CustomError.createError({
-                name: "User creation error",
-                cause: generateUserErrorInfo({ first_name, last_name, age, email }),
-                message: "Error to create user - TEST",
-                code: EErrors.INVALID_TYPES_ERROR
-            })
+            return res.status(400).send({ status: "error", error: "Parametros requeridos para crear el usuario!" });
         }
 
         // Si todo esta bien, armamos un DTO con la data ya controlada
@@ -46,10 +36,6 @@ export const saveUser = (req, res) => {
         res.status(201).send({ status: "Success", payload: userDTO })
     } catch (error) {
         console.error(error);
-        res.status(500).send({ error: error.code, message: error.message });
+        res.status(500).send({ error: "Error", message: error });
     }
-
-
-
-
 }

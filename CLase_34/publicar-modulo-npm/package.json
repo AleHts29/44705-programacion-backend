@@ -1,0 +1,11 @@
+{
+  "name": "calculator-app_c33",
+  "version": "1.0.3",
+  "description": "caculator basic",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alejandro Huertas",
+  "license": "MIT"
+}
