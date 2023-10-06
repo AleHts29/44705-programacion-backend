@@ -162,3 +162,31 @@ describe('Testing Adopme', () => {
 
 
 })
+
+
+
+// Usando Query params
+// test.js
+// const chai = require('chai');
+// const chaiHttp = require('chai-http');
+// const app = require('./app'); // Reemplaza con la ubicación de tu archivo app.js
+
+// chai.use(chaiHttp);
+// const expect = chai.expect;
+
+// describe('API Tests', () => {
+//   it('should return user details with query parameters', (done) => {
+//     chai
+//       .request(app)
+//       .get('/api/users')
+//       .query({ name: 'John', age: 30 }) // Define los parámetros de consulta aquí
+//       .end((err, res) => {
+//         expect(res).to.have.status(200);
+//         expect(res.body).to.have.property('name', 'John');
+//         expect(res.body).to.have.property('age', '30');
+//         done();
+//       });
+//   });
+
+//   // Agrega más pruebas según sea necesario
+// });
