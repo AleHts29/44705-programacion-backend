@@ -4,7 +4,7 @@ import cors from 'cors';
 //import Routers
 import usersRouter from './routers/users.router.js'
 //Stripe Router:
-// import paymentRouter from './routers/payments.router.js'
+import paymentRouter from './routers/payments.router.js'
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.use(cors());
 
 //Declare routers:
 app.use("/api/users", usersRouter);
-// app.use("/api/payments", paymentRouter);
+app.use("/api/payments", paymentRouter);
 
 const SERVER_PORT = config.port;
 app.listen(SERVER_PORT, () => {
